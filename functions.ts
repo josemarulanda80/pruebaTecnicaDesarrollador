@@ -9,17 +9,13 @@ export function groupAndFilter(result: any) {
                         Population: ele.Population + currentValue.Population
                     }
                 }
-
                 return ele;
             });
         }
-
         return [...accumulator, currentValue];
     }, []);
-
     return dataByStates
 }
-
 export function majorAccumulated(arrayEstates: any) {
     const sortedResults = arrayEstates.sort((a: any, b: any) => {
         return Number.parseInt(b['4/27/21']) - Number.parseInt(a['4/27/21'])
@@ -38,23 +34,16 @@ export function percentageDeathVsPopulation(arrayEstates: any) {
         var porcentage = (((element['4/27/21']) / (element.Population)) * 100).toFixed(5)
         console.log(`${element.Province_State} tiene un porcentaje de muerte de ${porcentage}%  por ${element.Population} habitantes`);
         arrayPorcentages.push({ Province_State: element.Province_State, percentage: parseFloat(porcentage) });
-        
-    });
+            });
     return arrayPorcentages
-
 }
 export function mostAffectedState(arrayEstates: any) {
-    // const sortedResults = arrayEstates.sort((a:any, b:any) => {
-    //     return (b.percentage) - (a.percentage)
-    // })
-    // console.log(`El estado con mayor acumulado hasta la fecha es ${sortedResults[0].Province_State} con un acumulado de ${sortedResults[0].percentage}`)
-    // return sortedResults  
     var arrayPercentages:any[] =[]
     arrayEstates.forEach((ele: { percentage: any; })=>{
         arrayPercentages.push(ele.percentage)
     })
     var myArrClean = arrayPercentages.filter(Boolean).filter(ele =>ele!=Infinity); 
-    console.log(Math.max(...myArrClean))
+  //  console.log(Math.max(...myArrClean))
     var StateMostAffect = arrayEstates.find((ele: { percentage: number; }) => ele.percentage === Math.max(...myArrClean));
     console.log(`El estado mas afectado es ${StateMostAffect.Province_State} con un porcentaje de ${StateMostAffect.percentage}% `)
 }
