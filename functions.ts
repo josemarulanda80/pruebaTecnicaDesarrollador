@@ -1,3 +1,6 @@
+//Si fuera un proyecto mas complejo o que requiera consumir Apis crearía interfaces para tipar adecuadamente los elementos; ya que marcar una propiedad como any no es una buena practica, 
+
+//Función para agrupar la información de los estados
 export function groupAndFilter(result: any) {
     const dataByStates = result.reduce((accumulator: any, currentValue: any) => {
         const elementoYaExiste = accumulator.find((ele: { Province_State: string; Population: number }) => ele.Province_State === currentValue.Province_State);
@@ -16,6 +19,8 @@ export function groupAndFilter(result: any) {
     }, []);
     return dataByStates
 }
+
+//Función para encontrar el estado mas afectado
 export function majorAccumulated(arrayEstates: any) {
     const sortedResults = arrayEstates.sort((a: any, b: any) => {
         return Number.parseInt(b['4/27/21']) - Number.parseInt(a['4/27/21'])
@@ -23,10 +28,14 @@ export function majorAccumulated(arrayEstates: any) {
     console.log(`El estado con mayor acumulado hasta la fecha es ${sortedResults[0].Province_State} con un acumulado de ${sortedResults[0]['4/27/21']}`)
     return sortedResults
 }
+
+//Función para encontrar ell estado menos afectado
 export function minorAccumulated(arrayEstates: any) {
     var sortedResults = arrayEstates.reverse()
     console.log(`El estado con menor acumulado hasta la fecha es ${sortedResults[0].Province_State} con un acumulado de ${sortedResults[0]['4/27/21']}`)
 }
+
+//Función que imprime porcentaje de muertos por pobación para cada estado
 export function percentageDeathVsPopulation(arrayEstates: any) {
     var arrayPorcentages: any[] = []
 
@@ -37,6 +46,8 @@ export function percentageDeathVsPopulation(arrayEstates: any) {
             });
     return arrayPorcentages
 }
+
+// Función que nuestra el estado mas afectado por el covid
 export function mostAffectedState(arrayEstates: any) {
     var arrayPercentages:any[] =[]
     arrayEstates.forEach((ele: { percentage: any; })=>{
