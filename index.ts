@@ -3,6 +3,8 @@ import * as path from "path";
 import { parse } from 'csv-parse';
 import { groupAndFilter, majorAccumulated, minorAccumulated, percentageDeathVsPopulation, mostAffectedState } from './functions'
 (() => {
+
+  //librería para leer documento: https://csv.js.org/parse/options/
 const csvFilePath = path.resolve(__dirname, 'files/time_series_covid19_deaths_US.csv');
   const fileContent = fs.readFileSync(csvFilePath, { encoding: 'utf-8' });
   parse(fileContent, {
