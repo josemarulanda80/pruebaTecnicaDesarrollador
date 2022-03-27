@@ -29,13 +29,13 @@ export function majorAccumulated(arrayEstates: any) {
     return sortedResults
 }
 
-//Función para encontrar ell estado menos afectado
+//Función para encontrar el estado menos afectado
 export function minorAccumulated(arrayEstates: any) {
     var sortedResults = arrayEstates.reverse()
     console.log(`El estado con menor acumulado hasta la fecha es ${sortedResults[0].Province_State} con un acumulado de ${sortedResults[0]['4/27/21']}`)
 }
 
-//Función que imprime porcentaje de muertos por pobación para cada estado
+//Función que imprime porcentaje de muertos por población para cada estado
 export function percentageDeathVsPopulation(arrayEstates: any) {
     var arrayPorcentages: any[] = []
 
