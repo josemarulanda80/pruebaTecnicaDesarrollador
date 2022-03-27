@@ -1,4 +1,4 @@
-//Si fuera un proyecto mas complejo o que requiera consumir Apis crearía interfaces para tipar adecuadamente los elementos; ya que marcar una propiedad como any no es una buena practica, 
+//Si fuera un proyecto mas complejo o que requiera consumir Apis crearía interfaces para tipar adecuadamente los elementos; ya que marcar una propiedad como any no es una buena practica, no lo hago aquí por simplicidad
 
 //Función para agrupar la información de los estados
 export function groupAndFilter(result: any) {
